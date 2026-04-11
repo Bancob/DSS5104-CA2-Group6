@@ -1,17 +1,33 @@
-# DSS5104-CA2: Text Classification Benchmark
-# Python 3.11+
+# DSS5104 CA2 — Text Classification Benchmark
+# Group 6 — April 2026
+#
+# Tested on:
+#   - Colab Pro (Python 3.12.12, CUDA 12.x, T4 / L4 GPUs) — primary target
+#   - Local Windows 11 + RTX 30xx (Python 3.10 / 3.11)
+#
+# IMPORTANT VERSION LOCK — NUMPY 2 INCOMPATIBILITY:
+# numpy is pinned to <2 because the locked HuggingFace ecosystem below
+# (transformers 4.41.2, datasets 2.19.1, sentence-transformers 2.7.0,
+# setfit 1.0.3) predates numpy 2.0 and uses numpy 1.x APIs that were
+# removed in numpy 2.0 (e.g. np.float_, np.bool8). Without this pin,
+# the notebook will fail with AttributeError on import / first dataset
+# access on a fresh Colab runtime (which ships numpy 2.x by default).
+#
+# If you bump any of the HF versions, you may be able to drop the numpy
+# pin — but do so only after running the full Part 5 + Part 6 sweep to
+# verify nothing regresses.
 
-# Core
-numpy>=1.24.0
+# ---- Core scientific stack ----
+numpy>=1.24.0,<2
 pandas>=2.0.0
 matplotlib>=3.7.0
 seaborn>=0.12.0
-scikit-learn>=1.3.0
+scikit-learn>=1.3.0,<1.7
 
-# Deep Learning
+# ---- Deep learning ----
 torch>=2.0.0
 
-# NLP / Transformers
+# ---- NLP / HuggingFace ecosystem (co-pinned; do not bump individually) ----
 transformers==4.41.2
 datasets==2.19.1
 tokenizers==0.19.1
@@ -21,3 +37,8 @@ huggingface_hub==0.23.5
 accelerate==0.31.0
 peft==0.11.1
 evaluate==0.4.2
+
+# ---- Notebook runtime (only needed for local execution; Colab already has these) ----
+# Uncomment the two lines below if running locally without Jupyter installed:
+# jupyter>=1.0.0
+# ipykernel>=6.25.0

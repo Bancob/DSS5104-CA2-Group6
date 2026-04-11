@@ -1,7 +1,22 @@
+# ---- Python / Jupyter ----
 .venv/
 __pycache__/
 *.pyc
-artifacts/
 .ipynb_checkpoints/
-experiment_results.csv
+
+# ---- Local Claude Code state ----
 .claude/
+
+# ---- Runtime training artifacts ----
+artifacts/
+experiment_results.csv
+
+# ---- Archived / working files not for submission ----
+old/
+OLD/
+DSS5104_text_classification_benchmark.ipynb
+text_classification_benchmark.ipynb
+
+# ---- Report working files (keep .docx/.md out of the repo; submit separately) ----
+REPORT.md
+REPORT.docx
