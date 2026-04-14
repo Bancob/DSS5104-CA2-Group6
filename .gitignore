@@ -16,6 +16,7 @@ old/
 OLD/
 DSS5104_text_classification_benchmark.ipynb
 text_classification_benchmark.ipynb
+report/
 
 # ---- Report working files (keep .docx/.md out of the repo; submit separately) ----
 REPORT.md
